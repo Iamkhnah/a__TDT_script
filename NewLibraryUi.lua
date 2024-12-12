@@ -2,6 +2,10 @@
 
 
 
+--discord.gg/boronide, code generated using luamin.js™
+
+
+
 
 do
 	local ui = game:GetService("CoreGui"):FindFirstChild("UILibrary")
@@ -11,10 +15,13 @@ do
 end
 getgenv().Device = "Pc"
 pcall(function()
-    IsOnMobile = table.find({Enum.Platform.IOS, Enum.Platform.Android}, UserInputService:GetPlatform())
-    if IsOnMobile then
-        getgenv().Device = "Mobile"
-    end    
+	IsOnMobile = table.find({
+		Enum.Platform.IOS,
+		Enum.Platform.Android
+	}, UserInputService:GetPlatform())
+	if IsOnMobile then
+		getgenv().Device = "Mobile"
+	end    
 end)
 
 local library = {}
@@ -152,7 +159,9 @@ end
 function library:Destroy()
 	library:Destroy()
 end
+
 function library:Evil()
+    local tabs = {}
 	local Main = Instance.new("Frame")
 	local Imgaemain = Instance.new("ImageLabel")
 	local UICorner = Instance.new("UICorner")
@@ -172,6 +181,14 @@ function library:Evil()
 	Main.ClipsDescendants = true
 	Main.AnchorPoint = Vector2.new(0.5, 0.5)
 	Main.BackgroundTransparency = 0
+    function tabs:ToggleUi()
+        if Main then
+            Main.Visible = not Main.Visible
+        else
+            warn("Cannt Found Main Frame")
+        end
+    end
+
 	local UiToggle_UiStroke256 = Instance.new("UIStroke")
 	UiToggle_UiStroke256.Color = Color3.fromRGB(0, 0, 0)
 	UiToggle_UiStroke256.Thickness = 5
@@ -705,7 +722,6 @@ function library:Evil()
 		UI:Destroy()
 	end)
 	dragify(ClickFrame, Main)
-	local tabs = {}
 	local S = false
 	function tabs:Tab(Name, icon)
 		local FrameTab = Instance.new("Frame")
